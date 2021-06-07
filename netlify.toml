@@ -1,0 +1,8 @@
+[dev]
+  framework = "#custom"
+  command = "snowpack dev"
+  targetPort = 3000
+  #autoLaunch = false
+
+[build]
+  publish = "build"

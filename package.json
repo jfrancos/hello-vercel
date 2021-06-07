@@ -1,0 +1,32 @@
+{
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "test": "web-test-runner \"src/**/*.test.jsx\"",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "prettier --check \"src/**/*.{js,jsx}\"",
+    "cloud-init": "[ -d .netlify ] || netlify link --id $(netlify sites:create -a $(node -e 'console.log(JSON.parse(process.argv[1]).slug)' \"$(netlify api getCurrentUser)\") -n' ' | grep 'Site ID' | grep -o '[a-z0-9-]*$')",
+    "tunnel": "npm run cloud-init ; netlify dev --live"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "clsx": "^1.1.1",
+    "react-icons": "^4.2.0"
+  },
+  "devDependencies": {
+    "@snowpack/plugin-dotenv": "^2.1.0",
+    "@snowpack/plugin-react-refresh": "^2.5.0",
+    "@snowpack/web-test-runner-plugin": "^0.2.2",
+    "@testing-library/react": "^11.2.6",
+    "@web/test-runner": "^0.13.3",
+    "chai": "^4.3.4",
+    "prettier": "^2.2.1",
+    "snowpack": "^3.3.7",
+    "@jadex/snowpack-plugin-tailwindcss-jit": "^0.3.0",
+    "@snowpack/plugin-postcss": "^1.4.0",
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.3.0",
+    "tailwindcss": "^2.1.2"
+  }
+}
